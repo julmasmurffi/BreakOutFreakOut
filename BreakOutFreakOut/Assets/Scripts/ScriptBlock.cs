@@ -5,10 +5,26 @@ using UnityEngine;
 public class ScriptBlock : MonoBehaviour {
     [SerializeField] AudioClip breakBlock;
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    level level;
+
+    private void Start()
     {
-        AudioSource.PlayClipAtPoint(breakBlock, Camera.main.transform.position);
-        Destroy(gameObject);    
+        level = FindObjectOfType<level>();
+
+        level.CountBreakableBlocks();
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        DestroyBlock();
+
+    }
+
+    private void DestroyBlock()
+    {
+        AudioSource.PlayClipAtPoint(breakBlock, Camera.main.transform.position);
+        Destroy(gameObject);
+
+        level.BlockDestroyed();
+    }
 }
