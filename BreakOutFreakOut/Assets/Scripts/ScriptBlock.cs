@@ -17,14 +17,16 @@ public class ScriptBlock : MonoBehaviour {
     private void OnCollisionEnter2D(Collision2D collision)
     {
         DestroyBlock();
-
     }
 
     private void DestroyBlock()
     {
+        FindObjectOfType<GameStatus>().AddToScore();
+
         AudioSource.PlayClipAtPoint(breakBlock, Camera.main.transform.position);
         Destroy(gameObject);
 
         level.BlockDestroyed();
+
     }
 }
