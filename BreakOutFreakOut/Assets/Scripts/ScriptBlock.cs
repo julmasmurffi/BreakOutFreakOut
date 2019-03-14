@@ -10,24 +10,31 @@ public class ScriptBlock : MonoBehaviour {
 
     private void Start()
     {
-        level = FindObjectOfType<level>();
+        CountBreakableBlocks();
 
-        level.CountBreakableBlocks();
+    }
+
+    private void CountBreakableBlocks()
+    {
+        level = FindObjectOfType<level>();
+        if (tag == "Breakable") { level.CountBlocks(); }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        DestroyBlock();
+        if (tag == "Breakable") { DestroyBlock(); }  
     }
 
     private void DestroyBlock()
     {
-        TriggerSparklesVFX();
-        PlayBlockDestroy();
-        Destroy(gameObject);
+        
+        
+            TriggerSparklesVFX();
+            PlayBlockDestroy();
+            Destroy(gameObject);
 
-        level.BlockDestroyed();
-
+            level.BlockDestroyed();
+        
     }
 
     private void PlayBlockDestroy()
