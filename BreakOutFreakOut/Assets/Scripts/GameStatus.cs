@@ -12,6 +12,7 @@ public class GameStatus : MonoBehaviour {
 
     //state vars
     [SerializeField] int currentScore = 0;
+    int resetScore = 0;
 
     private void Awake()
     {
@@ -45,4 +46,9 @@ public class GameStatus : MonoBehaviour {
         scoreText.text = currentScore.ToString();
     }
 
+    public void ResetScore()
+    {
+        currentScore = resetScore;
+        scoreText.text = currentScore.ToString();
+    }
 }

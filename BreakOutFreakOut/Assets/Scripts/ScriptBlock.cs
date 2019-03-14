@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ScriptBlock : MonoBehaviour {
     [SerializeField] AudioClip breakBlock;
+    [SerializeField] GameObject blockSparks;
 
     level level;
 
@@ -21,12 +22,29 @@ public class ScriptBlock : MonoBehaviour {
 
     private void DestroyBlock()
     {
-        FindObjectOfType<GameStatus>().AddToScore();
-
-        AudioSource.PlayClipAtPoint(breakBlock, Camera.main.transform.position);
+        TriggerSparklesVFX();
+        PlayBlockDestroy();
         Destroy(gameObject);
 
         level.BlockDestroyed();
 
     }
+
+    private void PlayBlockDestroy()
+    {
+        FindObjectOfType<GameStatus>().AddToScore();
+        AudioSource.PlayClipAtPoint(breakBlock, Camera.main.transform.position);
+    }
+
+    private void TriggerSparklesVFX()
+    {
+        GameObject sparkles = Instantiate(blockSparks, transform.position, transform.rotation);
+
+        Destroy(sparkles, 1f);
+    }
+
+    
+
+    
+
 }
