@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 61741803747520248}
   - component: {fileID: 114115832138967974}
   m_Layer: 0
-  m_Name: Breakable Block 1DMG
+  m_Name: 1 Damage Block
   m_TagString: Breakable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -121,6 +121,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   breakBlock: {fileID: 8300000, guid: 7fe0d86b432f0674db6e2b597778a036, type: 3}
   blockSparks: {fileID: 100000, guid: 7d846c02296ef4dc4abff04ce3e5262c, type: 3}
-  maxHits: 1
   hitSprites: []
   timesHit: 0

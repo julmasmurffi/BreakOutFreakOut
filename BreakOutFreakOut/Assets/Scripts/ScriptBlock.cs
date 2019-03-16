@@ -35,11 +35,9 @@ public class ScriptBlock : MonoBehaviour {
         if (tag == "Breakable")
         {
             HandleHit();
-        }
-        else
-        {
             ShowNextHitSprite();
         }
+        
     }
 
     private void ShowNextHitSprite()
@@ -47,14 +45,15 @@ public class ScriptBlock : MonoBehaviour {
         int spriteIndex = timesHit - 1;
 
         //null check the array to remove the error if sprite is forgotten
-        if(hitSprites[spriteIndex] != null)
+        if (hitSprites[spriteIndex] != null)
         {
+            Debug.Log("Array index" + spriteIndex);
+            
             GetComponent<SpriteRenderer>().sprite = hitSprites[spriteIndex];
         }
         else
         {
-            //added a name for the issue
-            Debug.LogError("Block Sprite is missing from array." + gameObject.name);
+            Debug.LogError("Block sprite is missing from array" + gameObject.name);
         }
     }
 

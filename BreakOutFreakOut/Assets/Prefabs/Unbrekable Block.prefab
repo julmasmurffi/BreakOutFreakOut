@@ -121,3 +121,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   breakBlock: {fileID: 8300000, guid: 7fe0d86b432f0674db6e2b597778a036, type: 3}
   blockSparks: {fileID: 100000, guid: 7d846c02296ef4dc4abff04ce3e5262c, type: 3}
+  hitSprites: []
+  timesHit: 0
