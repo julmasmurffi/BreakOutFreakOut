@@ -8,7 +8,7 @@ public class ScriptBlock : MonoBehaviour {
     //config params
     [SerializeField] AudioClip breakBlock;
     [SerializeField] GameObject blockSparks;
-    [SerializeField] int maxHits;
+    //[SerializeField] int maxHits;
     [SerializeField] Sprite[] hitSprites;
 
     //cached ref
@@ -45,11 +45,23 @@ public class ScriptBlock : MonoBehaviour {
     private void ShowNextHitSprite()
     {
         int spriteIndex = timesHit - 1;
-        GetComponent<SpriteRenderer>().sprite = hitSprites[spriteIndex];
+
+        //null check the array to remove the error if sprite is forgotten
+        if(hitSprites[spriteIndex] != null)
+        {
+            GetComponent<SpriteRenderer>().sprite = hitSprites[spriteIndex];
+        }
+        else
+        {
+            //added a name for the issue
+            Debug.LogError("Block Sprite is missing from array." + gameObject.name);
+        }
     }
 
     private void HandleHit()
     {
+        int maxHits = hitSprites.Length + 1;
+
         timesHit++;
         if (timesHit >= maxHits) { DestroyBlock(); }
     }
