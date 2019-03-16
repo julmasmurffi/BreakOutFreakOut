@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 61741803747520248}
   - component: {fileID: 114115832138967974}
   m_Layer: 0
-  m_Name: Block
+  m_Name: Breakable Block 2DMG
   m_TagString: Breakable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -71,7 +71,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: e7d888408dd4ee5469d70f90733f5024, type: 3}
-  m_Color: {r: 0.9433962, g: 0.31594875, b: 0.31594875, a: 1}
+  m_Color: {r: 0.3176471, g: 0.48834985, b: 0.94509804, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -121,3 +121,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   breakBlock: {fileID: 8300000, guid: 7fe0d86b432f0674db6e2b597778a036, type: 3}
   blockSparks: {fileID: 100000, guid: 7d846c02296ef4dc4abff04ce3e5262c, type: 3}
+  maxHits: 3
+  hitSprites:
+  - {fileID: 21300000, guid: e7d888408dd4ee5469d70f90733f5024, type: 3}
+  - {fileID: 21300000, guid: 53f7dd664d0488d41a984004cfa0a9f8, type: 3}
+  timesHit: 0
